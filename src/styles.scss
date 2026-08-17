@@ -27,6 +27,7 @@
        font-family: var(--heading-font);
     }
     img {
+      // адаптация изображений к экрану
        max-width: 100%;
        height: auto;
        display: block;
@@ -34,6 +35,7 @@
     //Глобальные классы
     // Class-Header
     .header {
+         //внешняя оболочка, контур
          width: 100%;
          background-color: var(--bg-color);
          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -43,6 +45,7 @@
       }
 
     .header__container {
+         //управляет расположением внутренних элементов: кнопок, текста  
          max-width: 1200px;
          margin: 0 auto;
          padding: 1rem 2rem;
@@ -52,6 +55,7 @@
       }
 // Class-Footer
       .footer {
+         //внешнее оформление
          width: 100%;
          background-color: var(--text-color);
          color: var(--bg-color);
@@ -59,6 +63,7 @@
          margin-top: auto;
       }
       .footer__container {
+         //расположение элементов подвала
          max-width: 1200px;
          margin: 0 auto;
          display: flex;
@@ -66,16 +71,45 @@
          gap: 2rem;
       }
       .footer__content {
+         //оформление текста
          display: flex;
          justify-content: space-between;
          flex-wrap: wrap;
          gap: 2rem;
       }
       .footer__bottom {
+         //нижняя полоса с копирайтом
          text-align: center;
          padding-top: 1.5rem;
          border-top: 1px solid rgba(255, 255, 255, 0.1);
          font-size: 0.9rem;
       }
- }
+      /* Базовый класс для всех кнопок */
+      .btn {
+           display: inline-block;
+           padding: 0.75rem 1.5rem;
+           background-color: var(--primary-color);
+           color: #5eabf3;
+           border:#0D47A1;
+           border-radius: var(--border-radius);
+           font-family: var(--body-font);
+           font-size: 1rem;
+           font-weight: 600;
+           cursor: pointer; //курсор в виде ручки
+           text-align: center;
+           text-decoration: none;
+           transition: opacity 0.2s ease; //за 0,2 сек кнопка протеряет 15% прозначности 
+
+            &:hover {
+               opacity: 0.85; //при наведении мыши кнопка станет на 15% прозрачнее
+            }
+      }
+      .product-image {
+            //оформления картинок внутри карточек товаров
+            width: 100%;
+            height: 250px; /* или любая высота на ваш вкус */
+            object-fit: cover; /* картинка заполнит блок, не искажаясь*/
+            border-radius: var(--img-radius);
+      }
+}
    
