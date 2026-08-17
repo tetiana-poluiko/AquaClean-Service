@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+ :root {
+   --primary-color:#2196F3; //основной цвет бренда (для акцентов и кнопок)
+   --bg-color: #E3F2F8; //общий цвет фона страницы
+   --text-color: #0D47A1; //основной цвет текста
+   --link-color: #2196F3; //цвет ссылок
+   --border-color: #0D47A1; //цвет для границ и рамок карточек
+   --heading-font: 'Playfair Display', 'Georgia', serif;
+   --body-font: 'Source Sans Pro', 'Arial', sans-serif;
+   --border-radius: 8px; // скругление углов 
+   --max-width: 1200px; //максимальная ширина центральной части сайта
+   --img-radius: 12px; //для красоты картинок в карточках
+    //Настройки базовых селекторов тегов
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--body-font);
+    }
+    button, input, textarea, select {
+       font-family: var(--body-font);
+    }
+    a {
+       text-decoration: none;
+       color: var(--link-color);
+    }
+    h1, h2, h3, h4, h5, h6 {
+       font-family: var(--heading-font);
+    }
+    img {
+       max-width: 100%;
+       height: auto;
+       display: block;
+    }
+    //Глобальные классы
+    // Class-Header
+    .header {
+         width: 100%;
+         background-color: var(--bg-color);
+         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+         position: sticky;
+         top: 0;
+         z-index: 100;
+      }
+
+    .header__container {
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 1rem 2rem;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+// Class-Footer
+      .footer {
+         width: 100%;
+         background-color: var(--text-color);
+         color: var(--bg-color);
+         padding: 3rem 2rem 1.5rem;
+         margin-top: auto;
+      }
+      .footer__container {
+         max-width: 1200px;
+         margin: 0 auto;
+         display: flex;
+         flex-direction: column;
+         gap: 2rem;
+      }
+      .footer__content {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+         gap: 2rem;
+      }
+      .footer__bottom {
+         text-align: center;
+         padding-top: 1.5rem;
+         border-top: 1px solid rgba(255, 255, 255, 0.1);
+         font-size: 0.9rem;
+      }
+ }
+   
