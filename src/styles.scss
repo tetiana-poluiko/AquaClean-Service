@@ -57,10 +57,11 @@
       .footer {
          //внешнее оформление
          width: 100%;
-         background-color: var(--text-color);
-         color: var(--bg-color);
+         background-color: var(--bg-color);
+         color: var(--border-color);
          padding: 3rem 2rem 1.5rem;
          margin-top: auto;
+         border-top: 1px solid var(--border-color);
       }
       .footer__container {
          //расположение элементов подвала
@@ -76,6 +77,7 @@
          justify-content: space-between;
          flex-wrap: wrap;
          gap: 2rem;
+         font-size: 0.9rem;
       }
       .footer__bottom {
          //нижняя полоса с копирайтом

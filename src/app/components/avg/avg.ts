@@ -7,3 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './avg.scss',
 })
 export class Avg {}
+export class AvgComponent {}

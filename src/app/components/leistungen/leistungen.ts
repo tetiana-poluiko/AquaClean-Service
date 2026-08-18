@@ -7,3 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './leistungen.scss',
 })
 export class Leistungen {}
+export class LeistungenComponent {}

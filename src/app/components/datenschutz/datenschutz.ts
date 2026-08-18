@@ -7,3 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './datenschutz.scss',
 })
 export class Datenschutz {}
+export class DatenschutzComponent {}

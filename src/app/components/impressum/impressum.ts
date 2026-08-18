@@ -7,3 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './impressum.scss',
 })
 export class Impressum {}
+export class ImpressumComponent {}

@@ -7,3 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './produktkatalog.scss',
 })
 export class Produktkatalog {}
+export class ProduktkatalogComponent {}
