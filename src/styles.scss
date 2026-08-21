@@ -34,7 +34,7 @@
     }
     //Глобальные классы
     // Class-Header
-    .header {
+      .header {
          //внешняя оболочка, контур
          width: 100%;
          background-color: var(--bg-color);
@@ -42,16 +42,13 @@
          position: sticky;
          top: 0;
          z-index: 100;
-      }
-
-    .header__container {
+      }      
+      .header__container {
          //управляет расположением внутренних элементов: кнопок, текста  
          max-width: 1200px;
-         margin: 0 auto;
-         padding: 1rem 2rem;
          display: flex;
          justify-content: space-between;
-         align-items: center;
+         align-items: center;                 
       }
 // Class-Footer
       .footer {
@@ -91,11 +88,11 @@
            display: inline-block;
            padding: 0.75rem 1.5rem;
            background-color: var(--primary-color);
-           color: #5eabf3;
+           color: #f0f1f2;
            border:#0D47A1;
            border-radius: var(--border-radius);
            font-family: var(--body-font);
-           font-size: 1rem;
+           font-size: 1,7rem;
            font-weight: 600;
            cursor: pointer; //курсор в виде ручки
            text-align: center;
@@ -104,14 +101,45 @@
 
             &:hover {
                opacity: 0.85; //при наведении мыши кнопка станет на 15% прозрачнее
+               background-color: rgb(2, 136, 22); 
             }
-      }
-      .product-image {
+         }
+         .product-image {
             //оформления картинок внутри карточек товаров
             width: 100%;
             height: 250px; /* или любая высота на ваш вкус */
             object-fit: cover; /* картинка заполнит блок, не искажаясь*/
             border-radius: var(--img-radius);
-      }
+         }
+//Anpassung von Handy, Tablet
+      /* Handy */
+      @media (max-width: 767px) {
+      /* Шапка: элементы выстраиваются друг под другом, чтобы не сжиматься */
+         .header__container {
+         flex-direction: column;
+         gap: 1rem;
+         padding: 1rem;
+         }
+      /* Подвал: колонки текста идут друг под другом */
+         .footer__content {
+         flex-direction: column;
+         gap: 1.5rem;
+         }
+      /* Кнопки и формы занимают всю ширину экрана для удобго нажатия пальцем */
+         button, input, textarea, select {
+         width: 100%;
+         }
+   }
+         /*Tablet (von 768px und mehr) --- */
+         @media (min-width: 768px) {
+         .header__container {
+         padding: 1.5rem 2rem;
+         }
+         /*Tablet-PC возвращаются в нормальный размер */
+         button, input, textarea, select {
+         width: auto;
+         min-width: 180px;
+         }
+  }     
 }
    

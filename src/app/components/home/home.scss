@@ -1,0 +1,42 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 15px;
+    min-width: 100vh;    
+    .hero-bild, .Slogan, .Top-Sales, .Top-Waren-Karts {grid-column: 1/5;}
+}
+.hero-bild {
+    height: 550px;
+}
+.hero-bild img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    object-position: center;
+}
+.Slogan{
+ text-align: center;
+ vertical-align: middle;
+ text-wrap: wrap;
+ font-size: 2rem;
+}
+.Top-Sales{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    object-position: center;
+}
+.Top-Waren-Karts{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px; 
+      .product-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;  
+            gap: 10px; 
+        }
+    }
