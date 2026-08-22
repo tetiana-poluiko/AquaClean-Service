@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Datenschutz } from './datenschutz';
+import { DatenschutzComponent } from './datenschutz';
 
-describe('Datenschutz', () => {
-  let component: Datenschutz;
-  let fixture: ComponentFixture<Datenschutz>;
+describe('DatenschutzComponent', () => {
+  let component: DatenschutzComponent;
+  let fixture: ComponentFixture<DatenschutzComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Datenschutz],
+      imports: [DatenschutzComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Datenschutz);
+    fixture = TestBed.createComponent(DatenschutzComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

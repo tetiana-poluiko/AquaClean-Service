@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './leistungen.html',
   styleUrl: './leistungen.scss',
 })
-export class Leistungen {}
 export class LeistungenComponent {}
