@@ -1,1 +1,53 @@
-<p>produktkatalog works!</p>
+<div class="catalog-page">
+
+<!-- Верхняя строка поиска -->
+<div class="search-container">
+<input type="text" placeholder="Suche nach Produkten..." />
+</div>
+
+<!-- Основная рабочая область -->
+<div class="catalog-main-layout">
+
+<!-- Левая панель фильтров -->
+<aside class="filter-sidebar">
+    <h3>Filter</h3>
+    <!-- Выпадающий список категорий -->
+    <div class="filter-group">
+    <label for="category-select">Kategorie</label>
+    <select id="category-select" [(ngModel)]="selectedCategory" (change)="applyFilter()">
+    <option value="">Alle Kategorien</option>
+    <option value="Waschbecken">Waschbecken</option>
+    <option value="WCs">WCs</option>
+    <option value="Duschen">Duschen</option>
+    <option value="Armaturen">Armaturen</option>
+    <option value="Badewannen">Badewannen</option>
+    </select>
+    </div>
+
+    <!-- Поля цены: Von - Bis -->
+    <div class="filter-group">
+      <label>Preis (€)</label>
+      <div class="price-inputs">
+       <input type="number" [(ngModel)]="minPrice" (input)="applyFilter()" placeholder="Von">
+       <span>—</span>
+       <input type="number" [(ngModel)]="maxPrice" (input)="applyFilter()" placeholder="Bis">
+      </div>
+    </div>
+</aside>
+
+<!-- Правая сетка товаров -->
+<main class="catalog-content">
+<div class="catalog-grid">
+@for (item of products; track item.id) {
+<div class="product-tile">
+<img [src]="item.imageUrl" [alt]="item.name" class="product-image">
+<h4>{{ item.name }}</h4>
+<p class="price">{{ item.price }} €</p>
+<button class="btn">Details</button>
+</div>
+}
+</div>
+</main>
+
+</div>
+</div>

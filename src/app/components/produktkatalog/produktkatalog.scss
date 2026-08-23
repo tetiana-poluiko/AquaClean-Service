@@ -1,0 +1,124 @@
+.catalog-page {
+padding: 20px;
+max-width: var(--max-width);
+margin: 0 auto;
+}
+
+.search-container {
+margin-bottom: 25px;
+
+input {
+width: 100%;
+padding: 12px 15px;
+font-size: 1rem;
+border: 1px solid var(--border-color);
+border-radius: var(--border-radius);
+background: #9fe2bf;
+outline: none;
+//Текст-подсказка в поле для ввода поиска изначально 
+&::placeholder{
+  color: var(--text-color);
+  opacity: 1;
+  font-size: 1.2rem;
+} //при наведении курсора на область для ввода текста в поиск
+&:hover {
+   background-color: rgb(248, 247, 245); //сама область для ввода
+   &::placeholder{
+      color: black; //цвет текста подсказки становится черным 
+   }
+}
+}
+}
+
+.catalog-main-layout {
+display: flex;
+gap: 30px;
+}
+
+.filter-sidebar {
+  width: 260px;
+  background: #9fe2bf;
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  height: fit-content;
+
+  h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+
+  .filter-group {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      outline: none;
+      font-size: 0.9rem;
+      background: white;
+    }
+
+    .price-inputs {
+      display: flex;
+      flex-direction: column;
+      //align-items: center;
+      gap: 8px;
+
+      input {
+        width: 50%;
+      }
+    }
+  }
+}
+
+.catalog-content {
+flex: 1;
+}
+
+.catalog-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+//оформление шаблона карточки товара(плитки), которая будет размножена
+.product-tile {
+border: 1px solid var(--border-color);
+padding: 15px;
+border-radius: var(--border-radius);
+background: #9fe2bf;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+.product-image {
+height: 180px; 
+margin-bottom: 12px;
+}
+
+h4 {
+margin: 0 0 10px 0;
+font-size: 1.1rem;
+}
+
+.price {
+font-weight: bold;
+color: var(--text-color);
+margin-bottom: 15px;
+}
+
+.btn {
+width: 100%;
+padding: 0.5rem 1rem;
+font-size: 1rem;
+}
+}
