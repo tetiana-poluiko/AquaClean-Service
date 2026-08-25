@@ -5,10 +5,14 @@ margin: 0 auto;
 }
 
 .search-container {
-margin-bottom: 25px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    align-items: center; 
+}   
 
-input {
-width: 100%;
+.search-container input {
+flex: 1; //input автоматически занимает всю доступную ширину
 padding: 12px 15px;
 font-size: 1rem;
 border: 1px solid var(--border-color);
@@ -28,6 +32,22 @@ outline: none;
    }
 }
 }
+
+.search-container button {
+  width: 46px !important; //фиксируем ширину кнопки, отличную от общего класса btn 
+  height: 46px !important;//фиксируем высоту кнопки, отличную от общего класса btn
+  min-width: unset !important; //сбрасываем ограничение общих классов
+  flex: 0 0 auto !important; //запрещает флексу ее растягивать в ширину
+  padding: 0 !important; //убираем текстовые отступы
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
 }
 
 .catalog-main-layout {
@@ -119,6 +139,5 @@ margin-bottom: 15px;
 .btn {
 width: 100%;
 padding: 0.5rem 1rem;
-font-size: 1rem;
 }
 }

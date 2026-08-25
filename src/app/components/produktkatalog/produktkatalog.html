@@ -2,7 +2,10 @@
 
 <!-- Верхняя строка поиска -->
 <div class="search-container">
-<input type="text" placeholder="Suche nach Produkten..." />
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Suche nach Produkten..." />
+    <button class="btn" (click)="applySuche()">
+      <img src="/suche1.png" alt="Suchen">
+    </button>
 </div>
 
 <!-- Основная рабочая область -->
@@ -14,7 +17,8 @@
     <!-- Выпадающий список категорий -->
     <div class="filter-group">
     <label for="category-select">Kategorie</label>
-    <select id="category-select" [(ngModel)]="selectedCategory" (change)="applyFilter()">
+    <select id="category-select" [(ngModel)]="selectedCategory">
+   <!-- <select id="category-select" [(ngModel)]="selectedCategory"(change)="applyFilter()"></select>  --> 
     <option value="">Alle Kategorien</option>
     <option value="Waschbecken">Waschbecken</option>
     <option value="WCs">WCs</option>
@@ -28,17 +32,23 @@
     <div class="filter-group">
       <label>Preis (€)</label>
       <div class="price-inputs">
-       <input type="number" [(ngModel)]="minPrice" (input)="applyFilter()" placeholder="Von">
+       <input type="number" [(ngModel)]="minPrice" placeholder="Von">
+       <!-- <input type="number" [(ngModel)]="minPrice" (input)="applyFilter()" placeholder="Von">  -->
        <span>—</span>
-       <input type="number" [(ngModel)]="maxPrice" (input)="applyFilter()" placeholder="Bis">
+       <input type="number" [(ngModel)]="maxPrice" placeholder="Bis">
+       <!-- <input type="number" [(ngModel)]="maxPrice" (input)="applyFilter()" placeholder="Bis"> -->
       </div>
+      </div>
+    
+    <div class="filter-group">
+      <button class="btn" (click)="applyFilter()">Filtern</button>
     </div>
 </aside>
 
 <!-- Правая сетка товаров -->
 <main class="catalog-content">
 <div class="catalog-grid">
-@for (item of products; track item.id) {
+@for (item of filteredProducts; track item.id) {
 <div class="product-tile">
 <img [src]="item.imageUrl" [alt]="item.name" class="product-image">
 <h4>{{ item.name }}</h4>
