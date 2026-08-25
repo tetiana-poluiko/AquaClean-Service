@@ -5,6 +5,9 @@ export interface Product {
   price: number;
   description: string;
   imageUrl: string;
+  hersteller: string;
+  materialien: string;
+  farbe: string;
 }
 
 export const PRODUCTS: Product[] = [
@@ -15,7 +18,10 @@ export const PRODUCTS: Product[] = [
     category: 'Waschbacken',
     price: 150,
     description: 'Stilvolles Aufsatzwaschbecken für das moderne Badezimmer.',
-    imageUrl: '/sink2.jpg'
+    imageUrl: '/sink2.jpg',
+    hersteller: 'Sanita',
+    materialien: 'Keramik',
+    farbe: 'Weiß'
   },
   {
     id: 2,
@@ -23,7 +29,10 @@ export const PRODUCTS: Product[] = [
     category: 'Waschbacken',
     price: 110,
     description: 'Platzsparendes Waschbecken ideal für das Gäste-WC.',
-    imageUrl: '/sink1.jpg'
+    imageUrl: '/sink1.jpg', 
+    hersteller: 'Kermi',
+    materialien: 'Keramik',
+    farbe: 'Weiß'
   },
   {
     id: 3,
@@ -31,7 +40,10 @@ export const PRODUCTS: Product[] = [
     category: 'Waschbacken',
     price: 195,
     description: 'Elegantes Waschbecken zur Kombination mit Waschtischunterschrank.',
-    imageUrl: '/sink3.jpg'
+    imageUrl: '/sink3.jpg',
+    hersteller: 'Sanita',
+    materialien: 'Naturstein',
+    farbe: 'Dunkelbraun'
   },
 
   // Унитазы (WCs)
@@ -41,7 +53,10 @@ export const PRODUCTS: Product[] = [
     category: 'WCs',
     price: 280,
     description: 'Spülrandloses Wand-WC mit Anti-Splash-System.',
-    imageUrl: '/toilet1.jpg'
+    imageUrl: '/toilet1.jpg',
+    hersteller: 'Duravit',
+    materialien: 'Keramik/Holz',
+    farbe: 'Weiß'
   },
   {
     id: 5,
@@ -49,7 +64,10 @@ export const PRODUCTS: Product[] = [
     category: 'WCs',
     price: 220,
     description: 'Klassisches Stand-WC mit Tiefspüler und WC-Sitz.',
-    imageUrl: '/toilet2.jpg'
+    imageUrl: '/toilet2.jpg',
+    hersteller: 'Villeroy&Boch',
+    materialien: 'Keramik',
+    farbe: 'Weiß'
   },
   {
     id: 6,
@@ -57,7 +75,10 @@ export const PRODUCTS: Product[] = [
     category: ['WCs', 'Duschen'],
     price: 650,
     description: 'Modernes Dusch-WC mit Intimwäsche und Föhn.',
-    imageUrl: '/dusch-wc-1.jpg'
+    imageUrl: '/dusch-wc-1.jpg',
+    hersteller: 'Geberit',
+    materialien: 'Keramik',
+    farbe: 'Mattschwarz'
   },
 
   // Душевые кабины (Duschen)
@@ -67,7 +88,10 @@ export const PRODUCTS: Product[] = [
     category: 'Duschen',
     price: 450,
     description: 'Eck-Duschkabine aus Sicherheitsglas mit Schiebetüren.',
-    imageUrl: '/shower1.jpg'
+    imageUrl: '/shower1.jpg',
+    hersteller: 'Kermi',
+    materialien: 'Sicherheitsglas/Aluminium',
+    farbe: 'Transparent/Chrom'
   },
   {
     id: 8,
@@ -75,7 +99,10 @@ export const PRODUCTS: Product[] = [
     category: 'Duschen',
     price: 890,
     description: 'Fertigdusche mit Regendusche und Massagedüsen.',
-    imageUrl: '/shower2.jpg'
+    imageUrl: '/shower2.jpg',
+    hersteller: 'Kermi',
+    materialien: 'Sicherheitsglas/Edelstahl',
+    farbe: 'Transparent/Schwarz'
   },
   {
     id: 9,
@@ -83,7 +110,10 @@ export const PRODUCTS: Product[] = [
     category: 'Duschen',
     price: 380,
     description: 'Freistehende Glaswand für eine moderne, schwellenlose Dusche.',
-    imageUrl: '/shower3.jpg'
+    imageUrl: '/shower3.jpg',
+    hersteller: 'Sanita',
+    materialien: 'Sicherheitsglas/Aluminium',
+    farbe: 'Transparent/Chrom'
   },
 
   // Краны для раковины / Смесители (Armaturen)
@@ -93,15 +123,21 @@ export const PRODUCTS: Product[] = [
     category: 'Armaturen',
     price: 90,
     description: 'Einhebel-Waschtischarmatur',
-    imageUrl: '/tap1.jpg'
+    imageUrl: '/tap1.jpg',
+    hersteller: 'Grohe',
+    materialien: 'Messing/Edelstahl',
+    farbe: 'Chrom'
   },
   {
     id: 11,
     name: 'Waschtischbatterie High',
     category: 'Armaturen',
-    price: 130,
+    price: 290,
     description: 'Erhöhte Armatur speziell für Aufsatzwaschbecken.',
-    imageUrl: '/tap2.jpg'
+    imageUrl: '/tap2.jpg',
+    hersteller: 'Grohe',
+    materialien: 'Messing',
+    farbe: 'Bronze'
   },
   {
     id: 12,
@@ -109,7 +145,10 @@ export const PRODUCTS: Product[] = [
     category: 'Armaturen',
     price: 175,
     description: 'Minimalistische Unterputz-Einheit für das Waschbecken.',
-    imageUrl: '/tap3.jpg'
+    imageUrl: '/tap3.jpg',
+    hersteller: 'Dornbracht',
+    materialien: 'Edelstahl',
+    farbe: 'Chrom'
   },
   {
     id: 13,
@@ -117,7 +156,10 @@ export const PRODUCTS: Product[] = [
     category: 'Armaturen',
     price: 210,
     description: 'Berührungslose Armatur mit Infrarot-Sensor für mehr Hygiene.',
-    imageUrl: '/tap4.jpg'
+    imageUrl: '/tap4.jpg',
+    hersteller: 'Schell',
+    materialien: 'Messing',
+    farbe: 'Chrom'
   },
 
   // Ванные (Badewannen)
@@ -127,7 +169,10 @@ export const PRODUCTS: Product[] = [
     category: 'Badewannen',
     price: 950,
     description: 'Luxuriöse freistehende Acryl-Badewanne im modernen Design.',
-    imageUrl: '/bathtub1.jpg'
+    imageUrl: '/bathtub1.jpg',
+    hersteller: 'Sanita',
+    materialien: 'Sanitäracryl',
+    farbe: 'Weiß'
   },
   {
     id: 15,
@@ -135,7 +180,10 @@ export const PRODUCTS: Product[] = [
     category: 'Badewannen',
     price: 340,
     description: 'Robuste Einbau-Badewanne für jeden Standard-Badezimmergrundriss.',
-    imageUrl: '/bathtub2.jpg'
+    imageUrl: '/bathtub2.jpg',
+    hersteller: 'Kermi',
+    materialien: 'Sanitäracryl',
+    farbe: 'Alpinweiß'
   },
    {
     id: 16,
@@ -143,6 +191,9 @@ export const PRODUCTS: Product[] = [
     category: 'Badewannen',
     price: 650,
     description: 'Freistehende Badewanne in modernem Design für ein stilvolles Badezimmer.',
-    imageUrl: '/bathtub3.jpg'
+    imageUrl: '/bathtub3.jpg',
+    hersteller: 'Kermi',
+    materialien: 'Stahl-Emaille',
+    farbe: 'Weiß'
   }
 ];

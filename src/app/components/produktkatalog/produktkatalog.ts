@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PRODUCTS, Product } from './data/products';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produktkatalog',
@@ -50,5 +51,9 @@ export class ProduktkatalogComponent {
     return item.name.toLowerCase().includes(this.searchTerm.toLowerCase());
   });
  }
-
+    //переход на карточку товара при нажатии на кнопку Details
+    constructor (private router:Router){}
+    applyDetails(item:any){
+      this.router.navigate (['/produkt-card', item.id]);
+  }
 }

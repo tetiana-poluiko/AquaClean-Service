@@ -5,6 +5,7 @@ import { LeistungenComponent } from './components/leistungen/leistungen';
 import { ImpressumComponent } from './components/impressum/impressum';
 import { DatenschutzComponent } from './components/datenschutz/datenschutz';
 import { AvgComponent } from './components/avg/avg';
+import { ProduktCardComponent} from './components/produkt-card/produkt-card';
 export const routes: Routes = [
 // Перенаправление с пустого адреса на главную страницу
 { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const routes: Routes = [
 // Юридические страницы
 { path: 'impressum', component: ImpressumComponent },
 { path: 'datenschutz', component: DatenschutzComponent },
-{ path: 'agb', component: AvgComponent }
+{ path: 'agb', component: AvgComponent },
+{ path: 'produkt-card/:id', component: ProduktCardComponent }
 ];

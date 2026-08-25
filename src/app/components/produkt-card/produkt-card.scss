@@ -1,0 +1,10 @@
+.grid-karta-container{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 20px;
+    min-width: 100%;  
+    .produckt-image {grid-column: 1/2;} //левая колонка 
+    .produckt-info  {grid-column: 2/3;} //правая колонка
+}
+.produckt-image{
+}

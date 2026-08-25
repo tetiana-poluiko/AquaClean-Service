@@ -53,7 +53,7 @@
 <img [src]="item.imageUrl" [alt]="item.name" class="product-image">
 <h4>{{ item.name }}</h4>
 <p class="price">{{ item.price }} €</p>
-<button class="btn">Details</button>
+<button class="btn" (click)="applyDetails(item)">Details</button>
 </div>
 }
 </div>
