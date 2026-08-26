@@ -104,7 +104,6 @@ gap: 30px;
 .catalog-content {
 flex: 1;
 }
-
 .catalog-grid {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
@@ -140,4 +139,34 @@ margin-bottom: 15px;
 width: 100%;
 padding: 0.5rem 1rem;
 }
+}
+
+@media (max-width: 899px) {
+  /* Главный макет каталога выстраиваем в колонку (фильтр сверху, товары снизу) */
+  .catalog-main-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 15px;
+  }
+  /* Сетку товаров переключаем в одну колонку */
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    box-sizing: border-box;       
+  }
+  .catalog-page{
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 10px;
+  }
+  .search-container {
+    margin-left: 10px;    
+  }
+}
+@media (min-width: 900px) and (max-width:1199px) {
+  .catalog-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -11,18 +11,18 @@
     border-radius: 10%;
     border-color: var(--border-color);
     display: block;
-    cursor: pointer;
-    line-height: 15px;
+    cursor: pointer;    
 }
 .product-info{
     display:flex;
     flex-direction: column;
     gap: 6px;
-    line-height: 7px;
+    line-height: normal;
 }
 .btn-card{
     align-self: flex-start;
-    background-color: rgb(236, 43, 43);
+    width: auto;
+    background-color: rgb(244, 88, 88);
     font-size: 1rem;
     padding: 10px 12px;
 }

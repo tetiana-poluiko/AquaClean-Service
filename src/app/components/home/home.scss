@@ -3,7 +3,6 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto;
     gap: 15px;
-    min-width: 100vh;    
     .hero-bild, .Slogan, .Top-Sales, .Top-Waren-Karts {grid-column: 1/5;}
 }
 .hero-bild {
@@ -40,3 +39,15 @@
             gap: 10px; 
         }
     }
+@media (max-width: 899px) {
+        .Top-Waren-Karts {
+              grid-template-columns: 1fr;
+          } 
+        .grid-container {
+            grid-template-columns: 1fr; /* Переключаем всю страницу в одну колонку */
+            min-width: 100%;
+         }
+        .hero-bild, .Slogan, .Top-Sales, .Top-Waren-Karts {
+             grid-column: 1 / 2; /* Элементы занимают всю ширину узкого экрана */
+         }   
+    }    

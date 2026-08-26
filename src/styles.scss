@@ -9,12 +9,13 @@
    --border-radius: 8px; // скругление углов 
    --max-width: 1200px; //максимальная ширина центральной части сайта
    --img-radius: 12px; //для красоты картинок в карточках
+   }
     //Настройки базовых селекторов тегов
     body {
       margin: 0;
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: var(--body-font);
+      font-family: var(--body-font);   
     }
     button, input, textarea, select {
        font-family: var(--body-font);
@@ -24,7 +25,11 @@
        color: var(--link-color);
     }
     h1, h2, h3, h4, h5, h6 {
-       font-family: var(--heading-font);
+        font-family: var(--heading-font);
+        max-width: 100%;
+        box-sizing: border-box;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     img {
       // адаптация изображений к экрану
@@ -49,7 +54,7 @@
          display: flex;
          justify-content: space-between;
          align-items: center; 
-         font-size: 1.4rem;                
+         font-size: 1.4rem;                        
       }
 // Class-Footer
       .footer {
@@ -108,13 +113,15 @@
          .product-image {
             //оформления картинок внутри карточек товаров
             width: 100%;
-            height: 250px; /* или любая высота на ваш вкус */
+            min-height: auto;
+            height: auto; /* или любая высота на ваш вкус */
             object-fit: cover; /* картинка заполнит блок, не искажаясь*/
             border-radius: var(--img-radius);
          }
+      
 //Anpassung von Handy, Tablet
       /* Handy */
-      @media (max-width: 767px) {
+   @media (max-width: 899px) {
       /* Шапка: элементы выстраиваются друг под другом, чтобы не сжиматься */
          .header__container {
          flex-direction: column;
@@ -126,21 +133,33 @@
          flex-direction: column;
          gap: 1.5rem;
          }
-      /* Кнопки и формы занимают всю ширину экрана для удобго нажатия пальцем */
-         button, input, textarea, select {
-         width: 100%;
+
+         .grid-container {
+            grid-template-columns: 1fr; /* Переключаем всю страницу в одну колонку */
+            min-width: 100%;
          }
+
+         h1, h2, h3, p {
+            font-size: 1.3rem;
+            word-break: break-word;           
+         }
+
    }
-         /*Tablet (von 768px und mehr) --- */
-         @media (min-width: 768px) {
+         /*Tablet (von 900px und mehr) --- */
+       @media (min-width: 900px) {
          .header__container {
-         padding: 1.5rem 2rem;
+         padding: 1.5rem 2rem;        
          }
+
          /*Tablet-PC возвращаются в нормальный размер */
          button, input, textarea, select {
          width: auto;
          min-width: 180px;
          }
-  }     
-}
+
+         main, section, .content {
+            padding: 0 2rem;
+            box-sizing: border-box;           
+         }
+   }    
    
