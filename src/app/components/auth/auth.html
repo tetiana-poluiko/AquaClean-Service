@@ -1,0 +1,32 @@
+<div class="auth-container">
+<h1>Registrierung</h1>
+
+<form (submit)="onRegister(); $event.preventDefault()">
+<div>
+<label><h3 class="regist_h3">Login:</h3></label>
+<input class="input1" type="text" [(ngModel)]="loginVal" name="login" required>
+</div>
+
+<div>
+<label><h3 class="regist_h3">Passwort:</h3></label>
+<input class="input1" type="password" [(ngModel)]="passwordVal" name="password" required>
+</div>
+
+<div>
+<label><h3 class="regist_h3">Email:</h3></label>
+<input class="input1" type="email" [(ngModel)]="emailVal" name="email" required>
+</div>
+
+<button class="btn regist_btn" type="submit">Registrierung</button>
+</form>
+</div>
+
+@if (showSuccessModal) {
+<div class="modal-overlay">
+<div class="modal-content">
+<h3>Die Registrierung war erfolgreich!</h3>
+<p>Ihr Konto im AquaClean-Servise ist nun einsatzbereit.</p>
+<button class="btn" (click)="closeModal()">Verstanden</button>
+</div>
+</div>
+}

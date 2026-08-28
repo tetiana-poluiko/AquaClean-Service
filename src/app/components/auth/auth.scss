@@ -1,0 +1,38 @@
+.regist_btn{
+    margin-top: 20px;    
+}
+.regist_h3{
+    margin-left: 10px;
+}
+//Окно уведомления об успешной регистрации
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* затемнение экрана */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+
+  h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+}

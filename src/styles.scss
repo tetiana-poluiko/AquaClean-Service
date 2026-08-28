@@ -110,6 +110,22 @@
                background-color: rgb(2, 136, 22); 
             }
          }
+         .input1 {
+           display: block;
+           width: 12%;
+           padding: 0.5rem 1rem;
+           margin-left: 2%;
+           background-color: #9fe2bf;
+           color: black;
+           border: 1px solid #0D47A1;
+           border-radius: var(--border-radius);
+           font-family: (var(--body-font));
+           font-size: 1.2rem;
+           outline: none;
+            &:hover {
+               background-color: rgb(239, 245, 240); 
+            }
+         }
          .product-image {
             //оформления картинок внутри карточек товаров
             width: 100%;
