@@ -2,10 +2,7 @@
 
 <!-- Верхняя строка поиска -->
 <div class="search-container">
-    <input type="text" [(ngModel)]="searchTerm" placeholder="Suche nach Produkten..." />
-    <button class="btn" (click)="applySuche()">
-      <img src="/suche1.png" alt="Suchen">
-    </button>
+    <input type="text" [(ngModel)]="searchTerm" (input)="applySuche()" placeholder="Suche nach Produkten...">
 </div>
 
 <!-- Основная рабочая область -->
@@ -49,6 +46,7 @@
 <main class="catalog-content">
 <div class="catalog-grid">
 @for (item of filteredProducts; track item.id) {
+ <!-- item - произвольно называем, без обьявления переменной. Она существует только внутри цикла for -->
 <div class="product-tile">
 <img [src]="item.imageUrl" [alt]="item.name" class="product-image">
 <h4>{{ item.name }}</h4>

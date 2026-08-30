@@ -36,7 +36,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;  
-            gap: 10px; 
+            gap: 10px;             
+        }
+        .vier-card{
+            aspect-ratio: 4/3;
         }
     }
 @media (max-width: 899px) {
