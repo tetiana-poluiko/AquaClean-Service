@@ -20,7 +20,7 @@
     line-height: normal;
 }
 .btn-card{
-    align-self: flex-start;
+    align-self:center;
     width: auto;
     background-color: rgb(244, 88, 88);
     font-size: 1rem;
@@ -40,5 +40,10 @@
         width: 100%;
         height: 280px; /* Комфортная высота для мобильного */
         object-fit: cover;
+    }
+    .product-info{
+      margin-bottom: 15px !important; 
+      gap: 20px;
+      h1, h2, h3, h4, .button { margin: 0 !important; } 
     }
 }

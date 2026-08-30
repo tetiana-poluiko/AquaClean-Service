@@ -44,8 +44,15 @@
     }
 @media (max-width: 899px) {
         .Top-Waren-Karts {
-              grid-template-columns: 1fr;
+              grid-template-columns: 1fr;                                                      
           } 
+        .Top-Waren-Karts .product-card {
+            margin-bottom: 25px !important; 
+            gap: 10px;
+            h4 , p {
+               margin: 0 !important;
+            }             
+        }             
         .grid-container {
             grid-template-columns: 1fr; /* Переключаем всю страницу в одну колонку */
             min-width: 100%;

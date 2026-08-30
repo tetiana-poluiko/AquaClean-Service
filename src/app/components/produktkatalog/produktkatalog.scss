@@ -33,23 +33,6 @@ outline: none;
 }
 }
 
-.search-container button {
-  width: 46px !important; //фиксируем ширину кнопки, отличную от общего класса btn 
-  height: 46px !important;//фиксируем высоту кнопки, отличную от общего класса btn
-  min-width: unset !important; //сбрасываем ограничение общих классов
-  flex: 0 0 auto !important; //запрещает флексу ее растягивать в ширину
-  padding: 0 !important; //убираем текстовые отступы
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-  }
-}
-
 .catalog-main-layout {
 display: flex;
 gap: 30px;
@@ -91,7 +74,6 @@ gap: 30px;
     .price-inputs {
       display: flex;
       flex-direction: column;
-      //align-items: center;
       gap: 8px;
 
       input {
@@ -127,12 +109,14 @@ margin-bottom: 12px;
 h4 {
 margin: 0 0 10px 0;
 font-size: 1.1rem;
+text-align: center;
 }
 
 .price {
 font-weight: bold;
 color: var(--text-color);
 margin-bottom: 15px;
+text-align: center;
 }
 
 .btn {
@@ -161,7 +145,12 @@ padding: 0.5rem 1rem;
     width: 100%;
     margin-left: 10px;
   }
-  .search-container {
+  .product-tile{
+      margin-bottom: 25px !important; 
+      gap: 10px;
+      h4 , p { margin: 0 !important; } 
+  }
+   .search-container {
     margin-left: 10px;    
   }
 }
