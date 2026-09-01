@@ -4,11 +4,21 @@
          <img src="/plumbering-1.svg" alt="AquaClean-Service" style="height: 50px;">
          <h2>AquaClean-Service</h2>
         </div>
-    <nav class="nav">
-    <a routerLink="/home" routerLinkActive="active">Home</a>
-    <a routerLink="/katalog" routerLinkActive="active">Katalog</a>
-    <a routerLink="/leistungen" routerLinkActive="active">Leistungen</a>
-    <a routerLink="/auth" routerLinkActive="active">Registrierung</a>
-    </nav>
-   </div>
+        <div class="textMenu">
+          <h2>Menu</h2>    
+          <img src="/menu2.svg" (click)="OverlayMenu()" class="imgMenu" alt="Menu">
+        </div>
+    
+    
+    @if(isMenuOpen){
+      <div class="overlay-class">        
+          <span (click)="isMenuOpen=false">X</span>
+          <a routerLink="/home" (click)="isMenuOpen=false" routerLinkActive="active">Home</a>
+          <a routerLink="/katalog" (click)="isMenuOpen=false" routerLinkActive="active">Katalog</a>
+          <a routerLink="/leistungen" (click)="isMenuOpen=false" routerLinkActive="active">Leistungen</a>
+          <a routerLink="/auth" (click)="isMenuOpen=false" routerLinkActive="active">Registrierung</a>
+      </div>
+      
+    }
+  </div>
 </header>

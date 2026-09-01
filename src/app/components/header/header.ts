@@ -8,4 +8,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  isMenuOpen: boolean = false;
+  OverlayMenu(){
+     this.isMenuOpen = true;
+  }
+}
