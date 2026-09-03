@@ -7,18 +7,20 @@
         <div class="textMenu">
           <h2>Menu</h2>    
           <img src="/menu2.svg" (click)="OverlayMenu()" class="imgMenu" alt="Menu">
+          <h3>{{userName}}</h3>
         </div>
-    
+  
     
     @if(isMenuOpen){
       <div class="overlay-class">        
-          <span (click)="isMenuOpen=false">X</span>
+          <span (click)="isMenuOpen=false">Close X</span>
           <a routerLink="/home" (click)="isMenuOpen=false" routerLinkActive="active">Home</a>
           <a routerLink="/katalog" (click)="isMenuOpen=false" routerLinkActive="active">Katalog</a>
           <a routerLink="/leistungen" (click)="isMenuOpen=false" routerLinkActive="active">Leistungen</a>
-          <a routerLink="/auth" (click)="isMenuOpen=false" routerLinkActive="active">Registrierung</a>
-      </div>
-      
+          <a routerLink="/auth" (click)="isMenuOpen=false" routerLinkActive="active">Anmeldung</a>
+          <!-- <a routerLink="/auth" (click)="isMenuOpen=false" routerLinkActive="active">Registrierung</a>   -->       
+      </div>      
     }
+    
   </div>
 </header>

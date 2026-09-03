@@ -10,7 +10,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   isMenuOpen: boolean = false;
+  userName: string | null = null;
   OverlayMenu(){
      this.isMenuOpen = true;
+  }
+  ngOnInit(){
+    this.userName = localStorage.getItem('userName');
   }
 }
