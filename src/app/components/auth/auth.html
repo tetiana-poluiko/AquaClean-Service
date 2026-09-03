@@ -11,7 +11,8 @@
         <input class="input1" type="password" [(ngModel)]="passwordVal" name="password" required>
     </div>
         <button class="btn regist_btn" type="submit">Anmeldung</button>
-        
+        <h3> Haben Sie noch kein Konto? Jetzt    <span class="span-registr" (click)="RegisrtierungForm(); $event.preventDefault()">registrieren.</span></h3>      
+      
     </form>
 } @else{
    <h1>Registrierung</h1>
@@ -28,7 +29,10 @@
         <label><h3 class="regist_h3">Email:</h3></label>
         <input class="input1" type="email" [(ngModel)]="emailVal" name="email" required>
     </div>
+    <div>
         <button class="btn regist_btn" type="submit">Registrierung</button>
+        <button class="btn regist_btn" (click)="AnmeldungForm()" type="button">Zurück zu Anmeldung</button>
+    </div>        
     </form>
 }
 
@@ -48,6 +52,34 @@
     <h2>Ein Benutzer mit diesem Login existiert bereits.</h2>
     <h3>Bitte geben Sie einen anderen Benutzernamen ein.</h3>
     <button class="btn" (click)="closeModal()">Verstanden</button>
+</div>
+</div>
+}
+
+@if (showAnmeldungErrorLeer) {
+<div class="modal-overlay">
+<div class="modal-content">
+    <h2>Füllen Sie bitte die Eingabefelder aus.</h2>
+    <h3>Eines der Felder blieb leer.</h3>
+    <button class="btn" (click)="closeModal()">Verstanden</button>
+</div>
+</div>
+}
+@if (showFehlterBenutzer) {
+<div class="modal-overlay">
+<div class="modal-content">
+    <h2>Dieser Benutzer existiert nicht.</h2>
+    <h3>Möchten Sie einen Benutzer registrieren?</h3>
+    <button class="btn" (click)="closeModal()">Verstanden</button>
+</div>
+</div>
+}
+@if (HalloBenutzer) {
+<div class="modal-overlay">
+<div class="modal-content">
+    <h2>Hallo, {{ userData[0].login }}!</h2>
+    <h3>Willkommen auf der Website</h3>
+    <button class="btn" (click)="closeModal()">Danke</button>
 </div>
 </div>
 }
