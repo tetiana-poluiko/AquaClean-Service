@@ -11,6 +11,7 @@
         <input class="input1" type="password" [(ngModel)]="passwordVal" name="password" required>
     </div>
         <button class="btn regist_btn" type="submit">Anmeldung</button>
+        <button class="btn regist_btn" (click)="RufAbmeldung()" type="button">Abmeldung</button>
         <h3> Haben Sie noch kein Konto? Jetzt    <span class="span-registr" (click)="RegisrtierungForm(); $event.preventDefault()">registrieren.</span></h3>      
       
     </form>

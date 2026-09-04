@@ -32,7 +32,6 @@ export class ProduktkatalogComponent implements OnInit {
     }
    
     async applyFilter(){
-        // 1. Создаем базовый запрос к таблице
         let query = supabase
         .from('product_aquaclean')
         .select('*');
@@ -56,15 +55,12 @@ export class ProduktkatalogComponent implements OnInit {
          console.error('Ошибка при фильтрации:', error);
         return;
         }
-      // 6. ОБЯЗАТЕЛЬНО! Сохраняем полученный массив в переменную компонента, 
-      // чтобы HTML-цикл @for смог вывести карточки на экран
-        this.filteredProducts = data; //из data выгружаем результат выборки в глобальную переменную filteredProducts, которую будем юзать
+        this.filteredProducts = data; 
         this.cdr.detectChanges();         
   } //applyFilter() закончилась
  
 searchTerm: string = '';
     async applySuche() {
-      // 1. Создаем базовый запрос к таблице
       let query = supabase
           .from('product_aquaclean')
           .select('*');
@@ -85,7 +81,6 @@ searchTerm: string = '';
       this.cdr.detectChanges();
     }
 //переход на карточку товара при нажатии на кнопку Details
-   // constructor (private router:Router){}
     applyDetails(item:any){
       this.router.navigate (['/produkt-card', item.id]);
   }

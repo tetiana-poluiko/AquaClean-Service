@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { supabase } from '../../supabase';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AuthComponent {
 // Переменные для привязки полей формы
-constructor(private cdr: ChangeDetectorRef) {}
+constructor(private router: Router, private cdr: ChangeDetectorRef) {}
 AnmeldungWahl : boolean = true;
 userData: any[] = [];
 loginVal: string = '';
@@ -79,11 +80,13 @@ async onAnmeldung() {
            {
             localStorage.setItem('userName', this.userData[0].login);
             this.HalloBenutzer = true;
-            alert('Hallo ' + data[0].login);
             this.cdr.detectChanges();
            }     
 }
-
+RufAbmeldung(){
+  localStorage.removeItem('userName');
+  window.location.reload();
+}
 // Функция закрытия окна по кнопке «ОК»
 closeModal() {
   this.showSuccessModal = false;
@@ -92,6 +95,7 @@ closeModal() {
   this.showFehlterBenutzer = false;
   this.HalloBenutzer = false;
   // Здесь можно очистить форму или сделать перенаправление 
+  this.cdr.detectChanges();
 }
 AnmeldungForm(){
   this.AnmeldungWahl = true;  

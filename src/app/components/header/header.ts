@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +9,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.scss',
 })
 export class HeaderComponent {
+  constructor(private router: Router) {}
   isMenuOpen: boolean = false;
   userName: string | null = null;
   OverlayMenu(){
@@ -16,5 +17,8 @@ export class HeaderComponent {
   }
   ngOnInit(){
     this.userName = localStorage.getItem('userName');
+  }
+  OpenAnmeldung(){
+      this.router.navigate (['/auth']);
   }
 }
