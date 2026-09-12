@@ -80,7 +80,7 @@ async onAnmeldung() {
            {
             localStorage.setItem('userName', this.userData[0].login);
             this.HalloBenutzer = true;
-            this.cdr.detectChanges();
+            window.location.reload();            
            }     
 }
 RufAbmeldung(){

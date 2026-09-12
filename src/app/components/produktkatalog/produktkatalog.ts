@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { supabase } from '../../supabase';
 import { Router } from '@angular/router';
+import { window } from 'rxjs';
 
 @Component({
   selector: 'app-produktkatalog',
@@ -17,10 +18,12 @@ export class ProduktkatalogComponent implements OnInit {
   filteredProducts: any[] = []; //это массив строк из выборки по запросу из БД 
   minPrice: number | null = null;
   maxPrice: number | null = null;
+  ArrayModellNummer: any[] = []; 
+  ArrayProdukt: any[] = [];  
   ngOnInit() {
     supabase
       .from('product_aquaclean')
-      .select('*')
+      .select('id, Modellnummer, name, imageUrl, product_variants(price)')
       .then(({data , error}: any)=> {
            if (error) {
              console.error('Ошибка БД', error);
@@ -32,39 +35,47 @@ export class ProduktkatalogComponent implements OnInit {
     }
    
     async applyFilter(){
-        let query = supabase
+        const { data: ArrayData, error: errorArray} = await supabase
+        .from('categories')
+        .select('categorie_id, categorie_name, product_categories(Modellnummer)')
+        .ilike('categorie_name', this.selectedCategory);
+        if (errorArray) {
+           console.error('Ошибка при фильтрации:', errorArray);
+           return;}
+        //превращаем сложный массив объектов в плоский список Modellnummer
+        this.ArrayModellNummer = ArrayData.flatMap((cat:any) =>
+        cat.product_categories.map((item:any) => item.Modellnummer));        
+        console.log('Найденные Modellnummer:', this.ArrayModellNummer);
+        // Создаем главный запрос из БД с учетом всех фильтров от пользователя
+        let hauptQuery = supabase
         .from('product_aquaclean')
-        .select('*');
+        .select('id, Modellnummer, name, imageUrl, product_variants!inner(price)')
+        .in('Modellnummer', this.ArrayModellNummer)
         // 2. Если минимальная цена заполнена(не пустая, не равна 0), 
         // то добавляем ее в строку условия для фильтрации query 
-        if (this.minPrice !== null && this.minPrice !== undefined) {
-        query = query.gte('price', this.minPrice);
+        if (this.minPrice !== null && this.minPrice !== undefined && String(this.minPrice) !== '') {
+        hauptQuery = hauptQuery.gte('product_variants.price', this.minPrice);
         }
         // 3.Если максимальная цена заполнена(не пустая, не равна 0), 
         // то добавляем ее в строку условия для фильтрации query 
-        if (this.maxPrice !== null && this.maxPrice !== undefined) {
-        query = query.lte('price', this.maxPrice);
+        if (this.maxPrice !== null && this.maxPrice !== undefined && String(this.maxPrice) !== '') {
+        hauptQuery = hauptQuery.lte('product_variants.price', this.maxPrice);
         }
-        // 4. Если категория выбрана, то добавляем ее в условие query
-        if (this.selectedCategory && this.selectedCategory !== '') {
-        query = query.ilike('category', this.selectedCategory);
-        }
-      const { data, error } = await query //в query условия запроса, результат выборки на 2 сек запишется в data
-      //Обработка ошибок
-        if (error) {
-         console.error('Ошибка при фильтрации:', error);
+        const { data: ArrayProdukt, error: errorProdukt } = await hauptQuery; 
+        //Обработка ошибок
+        if (errorProdukt) {
+         console.error('Ошибка при фильтрации:', errorProdukt);
         return;
         }
-        this.filteredProducts = data; 
+        this.filteredProducts = ArrayProdukt; 
         this.cdr.detectChanges();         
-  } //applyFilter() закончилась
+      } //applyFilter() закончилась 
  
-searchTerm: string = '';
+    searchTerm: string = '';
     async applySuche() {
       let query = supabase
           .from('product_aquaclean')
-          .select('*');
-
+          .select('id, Modellnummer, name, imageUrl, product_variants(price)');          
       // 2. Если пользователь что-то ввел в поле поиска, добавляем условие .ilike()
       if (this.searchTerm && this.searchTerm.trim() !== '') {
           // Ищем совпадения в колонке 'name' (название товара)
@@ -82,6 +93,7 @@ searchTerm: string = '';
     }
 //переход на карточку товара при нажатии на кнопку Details
     applyDetails(item:any){
-      this.router.navigate (['/produkt-card', item.id]);
+      console.log('Весь объект товара', item);
+      this.router.navigate (['/produkt-card', item.Modellnummer]);      
   }
 }

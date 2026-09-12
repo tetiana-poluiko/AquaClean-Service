@@ -18,8 +18,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/produkt-card',id]);
   }
   ngOnInit() {
-    this.RandomWaren();
-   // this.cdr.detectChanges();
+    this.RandomWaren();  
   }
   async RandomWaren(){
     this.randomArray = [];
@@ -37,8 +36,7 @@ export class HomeComponent implements OnInit {
     
          //собираем случайные 4 номера id для выборки товаров по этим номерам из БД
     while (this.randomArray.length < 4 && this.randomArray.length < this.countWaren){
-    //while (this.randomArray.length < 4) {
-        const randomVar = Math.floor(Math.random() * this.countWaren) + 1;
+         const randomVar = Math.floor(Math.random() * this.countWaren) + 1;
          if (!this.randomArray.includes(randomVar)) {
             this.randomArray.push(randomVar);
           }  
@@ -46,7 +44,7 @@ export class HomeComponent implements OnInit {
     //Делаем один запрос в БД и забираем сразу все 4 строки товаров из таблицы
       const { data, error } = await supabase
       .from('product_aquaclean') 
-      .select('*')
+      .select('id, name, product_variants(price, imageUrl)')
       .in('id', this.randomArray);
     if (data) {
     this.filteredProducts = data;
@@ -54,8 +52,7 @@ export class HomeComponent implements OnInit {
   this.cdr.detectChanges();
   }
   //переход на карточку товара при нажатии на кнопку Details
-   // constructor (private router:Router){}
-    applyDetails(item:any){
+      applyDetails(item:any){
       this.router.navigate (['/produkt-card', item.id]);
   }
 }

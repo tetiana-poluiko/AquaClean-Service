@@ -12,11 +12,12 @@ export class ProduktCardComponent implements OnInit {
     item: any; 
     constructor(private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
     async ngOnInit() {      // Получаем переданный ID из адресной строки
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const modell_nummer = Number(this.route.snapshot.paramMap.get('Modellnummer'));
     const { data, error } = await supabase
       .from('product_aquaclean')
-      .select('*')
-      .eq('id', id)
+      .select(`Modellnummer, name, description, imageUrl, hersteller, 
+              product_variants(farbe, materialien, price)`)
+      .eq('Modellnummer', modell_nummer)
       .single();
 
       if(data){

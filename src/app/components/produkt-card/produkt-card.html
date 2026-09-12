@@ -5,10 +5,10 @@
    
     <div class="product-info">
         <h1>{{item.name}}</h1>
-        <h2>{{item.price}} €</h2>
+        <h2>{{item.product_variants[0]?.price}} €</h2>
         <h3>Hersteller: Firma "{{item.hersteller}}"</h3>
-        <h3>Materialien: {{item.materialien}}</h3>  
-        <h3>Farbe: {{item.farbe}}</h3>   
+        <h3>Materialien: {{item.product_variants[0]?.materialien}}</h3>  
+        <h3>Farbe: {{item.product_variants[0]?.farbe}}</h3>   
         <h3>Beschreibung: {{item.description}}</h3>   
         <button class="btn btn-card">In den Warenkorb</button>
         <h4>lieferbar - in 1-2 Werktagen bei dir</h4>              

@@ -15,9 +15,9 @@
     <div class="Top-Waren-Karts">
         @for (item of filteredProducts; track item.id) {
           <div class="product-card">
-            <img [src]="item.imageUrl" [alt]="item.name" class="product-image vier-card">
+            <img [src]="item.product_variants[0]?.imageUrl" [alt]="item.name" class="product-image vier-card">
             <h4>{{ item.name }}</h4>
-            <p class="price">{{ item.price }} €</p>
+            <p class="price">{{ item.product_variants[0]?.price }} €</p>
             <button class="btn" (click)="applyDetails(item)">Details</button>
          </div>
         }

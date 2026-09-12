@@ -18,6 +18,6 @@ export const routes: Routes = [
 { path: 'impressum', component: ImpressumComponent },
 { path: 'datenschutz', component: DatenschutzComponent },
 { path: 'agb', component: AvgComponent },
-{ path: 'produkt-card/:id', component: ProduktCardComponent },
+{ path: 'produkt-card/:Modellnummer', component: ProduktCardComponent },
 { path: 'auth', component: AuthComponent }
 ];

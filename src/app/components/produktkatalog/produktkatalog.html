@@ -10,32 +10,27 @@
 
 <!-- Левая панель фильтров -->
 <aside class="filter-sidebar">
-    <h3>Filter</h3>
-    <!-- Выпадающий список категорий -->
+    <h3>Filter</h3>  <!-- Выпадающий список категорий -->
     <div class="filter-group">
     <label for="category-select">Kategorie</label>
-    <select id="category-select" [(ngModel)]="selectedCategory">
-   <!-- <select id="category-select" [(ngModel)]="selectedCategory"(change)="applyFilter()"></select>  --> 
-    <option value="">Alle Kategorien</option>
-    <option value="Waschbecken">Waschbecken</option>
-    <option value="WCs">WCs</option>
-    <option value="Duschen">Duschen</option>
-    <option value="Armaturen">Armaturen</option>
-    <option value="Badewannen">Badewannen</option>
-    </select>
+     <select id="category-select" [(ngModel)]="selectedCategory">
+       <option value="Waschbacken">Waschbacken</option>
+       <option value="WCs">WCs</option>
+       <option value="Duschen">Duschen</option>
+       <option value="Armaturen">Armaturen</option>
+       <option value="Badewannen">Badewannen</option>
+     </select>
     </div>
 
     <!-- Поля цены: Von - Bis -->
     <div class="filter-group">
-      <label>Preis (€)</label>
-      <div class="price-inputs">
-       <input type="number" [(ngModel)]="minPrice" placeholder="Von">
-       <!-- <input type="number" [(ngModel)]="minPrice" (input)="applyFilter()" placeholder="Von">  -->
-       <span>—</span>
-       <input type="number" [(ngModel)]="maxPrice" placeholder="Bis">
-       <!-- <input type="number" [(ngModel)]="maxPrice" (input)="applyFilter()" placeholder="Bis"> -->
-      </div>
-      </div>
+        <label>Preis (€)</label>
+        <div class="price-inputs">
+          <input type="number" [(ngModel)]="minPrice" placeholder="Von">
+          <span>—</span>
+          <input type="number" [(ngModel)]="maxPrice" placeholder="Bis">
+        </div>
+    </div>
     
     <div class="filter-group">
       <button class="btn" (click)="applyFilter()">Filtern</button>
@@ -46,11 +41,11 @@
 <main class="catalog-content">
 <div class="catalog-grid">
 @for (item of filteredProducts; track item.id) {
- <!-- item - произвольно называем, без обьявления переменной. Она существует только внутри цикла for -->
-<div class="product-tile">
+ <!-- item - произвольно называем, внутренняя переменная.-->
+<div class="product-tile"> <!--выбираем только первую строку [0] из объекта-массива product_variants -->
 <img [src]="item.imageUrl" [alt]="item.name" class="product-image">
 <h4>{{ item.name }}</h4>
-<p class="price">{{ item.price }} €</p>
+<p class="price">{{ item.product_variants[0]?.price }} €</p>
 <button class="btn" (click)="applyDetails(item)">Details</button>
 </div>
 }
